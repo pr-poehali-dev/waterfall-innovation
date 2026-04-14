@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 interface PricingTier {
   name: string;
@@ -10,40 +10,40 @@ interface PricingTier {
 
 const tiers: PricingTier[] = [
   {
-    name: "СТАРТ",
-    price: "1 490 ₽",
-    description: "Для тех, кому нужен второй взгляд.",
+    name: "СТАНДАРТ",
+    price: "2 990 ₽",
+    description: "Для поддерживающей уборки квартиры.",
     features: [
-      "500 ИИ-черновиков в месяц",
-      "Стандартная библиотека тонов",
-      "Интеграция с Gmail",
-      "Chrome-расширение",
-      "История контекста 7 дней",
+      "До 50 м² площади",
+      "Кухня + санузел + комнаты",
+      "Профессиональные средства",
+      "Выезд в удобное время",
+      "Гарантия результата",
     ],
   },
   {
-    name: "ПРО",
-    price: "3 990 ₽",
-    description: "Для профессионалов, которые ценят время.",
+    name: "КОМФОРТ",
+    price: "5 490 ₽",
+    description: "Для генеральной уборки и больших квартир.",
     features: [
-      "Безлимитные ИИ-черновики",
-      "Обучение собственному тону",
-      "Все интеграции",
-      "Приоритетная поддержка",
-      "История контекста 30 дней",
+      "До 100 м² площади",
+      "Генеральная уборка",
+      "Мытьё окон изнутри",
+      "Чистка духовки и холодильника",
+      "Приоритетный выезд",
     ],
     popular: true,
   },
   {
-    name: "КОМАНДА",
-    price: "7 990 ₽",
-    description: "Для команд, работающих на масштабе.",
+    name: "БИЗНЕС",
+    price: "от 8 990 ₽",
+    description: "Для офисов и коммерческих помещений.",
     features: [
-      "Всё из Про",
-      "Командная работа",
-      "Админ-панель",
-      "SSO и SAML",
-      "Персональный менеджер",
+      "От 100 м² площади",
+      "Любой тип помещения",
+      "Постоянный персональный мастер",
+      "Договор обслуживания",
+      "Счёт для юридических лиц",
     ],
   },
 ];
@@ -55,17 +55,17 @@ const PricingSection = () => {
         <div className="text-center mb-16">
           <span className="text-xs font-mono text-muted-foreground tracking-wider">ТАРИФЫ</span>
           <h2 className="font-serif text-4xl md:text-5xl mt-4 mb-4">
-            Пишите как профи,
+            Чисто и прозрачно,
             <br />
-            платите разумно
+            без скрытых платежей
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <div className="bg-[#fffef0] px-3 py-1 rounded shadow-sm rotate-[-2deg] border border-amber-100">
-              <span className="text-xs font-mono">БЕСПЛАТНЫЙ_ПРОБНЫЙ</span>
+              <span className="text-xs font-mono">БЕСПЛАТНЫЙ_ВЫЕЗД</span>
             </div>
-            <p className="text-muted-foreground text-sm">Без скрытых платежей. 14 дней бесплатно</p>
+            <p className="text-muted-foreground text-sm">Оценка объёма работ — бесплатно</p>
             <div className="bg-[#fffef0] px-3 py-1 rounded shadow-sm rotate-[2deg] border border-amber-100">
-              <span className="text-xs font-mono">ОДОБРЕНО</span>
+              <span className="text-xs font-mono">ГАРАНТИЯ</span>
             </div>
           </div>
         </div>
@@ -88,7 +88,6 @@ const PricingSection = () => {
                 <span className="text-xs font-mono text-muted-foreground">{tier.name}</span>
                 <div className="flex items-baseline gap-1 mt-2">
                   <span className="text-4xl font-serif">{tier.price}</span>
-                  <span className="text-muted-foreground text-sm">/мес</span>
                 </div>
                 <p className="text-sm text-muted-foreground mt-2">{tier.description}</p>
               </div>
@@ -97,7 +96,7 @@ const PricingSection = () => {
                 {tier.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-3">
                     <div className="w-4 h-4 rounded-full bg-accent flex items-center justify-center">
-                      <Check className="w-2.5 h-2.5 text-accent-foreground" />
+                      <Icon name="Check" size={10} className="text-accent-foreground" />
                     </div>
                     <span className="text-sm">{feature}</span>
                   </div>
@@ -111,7 +110,7 @@ const PricingSection = () => {
                     : "border border-border hover:bg-secondary"
                 }`}
               >
-                НАЧАТЬ
+                ЗАКАЗАТЬ
               </button>
             </div>
           ))}
